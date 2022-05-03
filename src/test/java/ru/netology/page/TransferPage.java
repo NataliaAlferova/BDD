@@ -13,7 +13,7 @@ public class TransferPage {
         amount.shouldBe(visible);
     }
 
-    public DashboardPage transferMoney (int sum) {
+    public DashboardPage transferMoneyFromCard2ToCard1(int sum) {
         $("[data-test-id='amount'] input").setValue(String.valueOf(sum));
         var dashboardPage = new DashboardPage();
         $("[data-test-id='from'] input").setValue(dashboardPage.getcard2().getNumber());

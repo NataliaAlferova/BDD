@@ -1,5 +1,7 @@
 package ru.netology.test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Test;
@@ -21,11 +23,11 @@ class MoneyTransferTest {
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
-        var dashboardPage =  verificationPage.validVerify(verificationCode);
+        var dashboardPage = verificationPage.validVerify(verificationCode);
         int startBalance1 = dashboardPage.getFirstCardBalance();
         int startBalance2 = dashboardPage.getSecondCardBalance();
         var transferPage = dashboardPage.chooseCard();
-        transferPage.transferMoney(sum);
+        transferPage.transferMoneyFromCard2ToCard1(sum);
 
         var dashBoardPageFinish = new DashboardPage();
         int finishBalance1 = dashBoardPageFinish.getFirstCardBalance();
@@ -34,6 +36,5 @@ class MoneyTransferTest {
         assertEquals(startBalance2 - sum, finishBalance2);
         assertEquals(startBalance1 + sum, finishBalance1);
     }
-
 }
 

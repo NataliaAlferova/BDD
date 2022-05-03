@@ -24,7 +24,6 @@ public class DashboardPage {
     }
 
 
-    // к сожалению, разработчики не дали нам удобного селектора, поэтому так
     private ElementsCollection cards = $$(".list__item div");
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
@@ -51,7 +50,6 @@ public class DashboardPage {
     @Value
     public class Card {
         private String number;
-//        private int balance;
     }
 
     public Card getcard1() {
@@ -61,5 +59,4 @@ public class DashboardPage {
     public Card getcard2() {
         return new Card("5559 0000 0000 0002");
     }
-
 }
