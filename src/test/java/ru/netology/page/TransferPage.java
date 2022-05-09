@@ -1,6 +1,7 @@
 package ru.netology.page;
 
 import com.codeborne.selenide.SelenideElement;
+import ru.netology.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -13,10 +14,10 @@ public class TransferPage {
         amount.shouldBe(visible);
     }
 
-    public DashboardPage transferMoneyFromCard2ToCard1(int sum) {
+    public DashboardPage transferMoneyFromCard2ToCard1(int sum, String numberCard2) {
         $("[data-test-id='amount'] input").setValue(String.valueOf(sum));
-        var dashboardPage = new DashboardPage();
-        $("[data-test-id='from'] input").setValue(dashboardPage.getcard2().getNumber());
+        var dataHelper = new DataHelper();
+        $("[data-test-id='from'] input").setValue(numberCard2);
         $("[class='button__text']").click();
 
         return new DashboardPage();

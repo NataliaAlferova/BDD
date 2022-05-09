@@ -15,6 +15,8 @@ import static com.codeborne.selenide.Selenide.open;
 class MoneyTransferTest {
 
     public int sum = 500;
+    public String numberCard1 = "5559000000000001";
+    public String numberCard2 = "5559000000000002";
 
     @Test
     void shouldTransferMoneyBetweenOwnCards() {
@@ -27,7 +29,7 @@ class MoneyTransferTest {
         int startBalance1 = dashboardPage.getFirstCardBalance();
         int startBalance2 = dashboardPage.getSecondCardBalance();
         var transferPage = dashboardPage.chooseCard();
-        transferPage.transferMoneyFromCard2ToCard1(sum);
+        transferPage.transferMoneyFromCard2ToCard1(sum, numberCard2);
 
         var dashBoardPageFinish = new DashboardPage();
         int finishBalance1 = dashBoardPageFinish.getFirstCardBalance();

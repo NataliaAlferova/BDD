@@ -15,6 +15,7 @@ public class DashboardPage {
     private SelenideElement heading = $("[data-test-id=dashboard]");
 
     public DashboardPage() {
+
         heading.shouldBe(visible);
     }
 
@@ -23,12 +24,10 @@ public class DashboardPage {
         return new TransferPage();
     }
 
-
     private ElementsCollection cards = $$(".list__item div");
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
 
-    private ElementsCollection buttons = $$("[class='button__text']");
 
     public int getFirstCardBalance() {
         val text = cards.first().text();
@@ -47,16 +46,5 @@ public class DashboardPage {
         return Integer.parseInt(value);
     }
 
-    @Value
-    public class Card {
-        private String number;
-    }
-
-    public Card getcard1() {
-        return new Card("5559 0000 0000 0001");
-    }
-
-    public Card getcard2() {
-        return new Card("5559 0000 0000 0002");
-    }
+    private ElementsCollection buttons = $$("[class='button__text']");
 }
